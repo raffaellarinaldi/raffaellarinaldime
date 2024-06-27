@@ -1,0 +1,24 @@
+<div class="testimonial bg-white my-5">
+	<div class="position-relative p-5 shadow-sm">
+		<blockquote class="blockquote ps-4">
+			<p class="mb-4">{{ testimonial.text | safe }}</p>
+			<i class="quote-icon fas fa-quote-left fa-lg position-absolute text-primary"></i>
+			<footer class="blockquote-footer presudo-hidden mt-4">
+				<div class="row client-profile">
+					<div class="col-12 col-md-auto">
+						<img src="/assets/img/clients/{{ testimonial.person | slugify | url }}.jpg" alt="{{ testimonial.person }}">
+					</div>
+					<div class="col">
+						<cite title="Source" class="quote-source d-inline-block font-style-normal pt-3">
+							<span class="d-block">{{ testimonial.person }}</span>
+							<span class="d-block">{{ testimonial.role }}{% if testimonial.person != title %} ({{ title }}){% endif %}</span>
+							{% if testimonial.linkedin %}
+								<span class="d-block position-absolute source-link"><i class="fab fa-linkedin fa-2x me-1" data-fa-transform="down-3"></i> <a class="text-secondary text-link" href="{{ testimonial.linkedin }}" target="_blank" rel="nofollow noreferrer noopener">View on Linkedin <i class="fas fa-external-link-alt ms-1" data-fa-transform="up-1"></i></a></span>
+							{% endif %}
+						</cite>
+					</div>
+				</div>
+			</footer>
+		</blockquote>
+    </div>
+</div>

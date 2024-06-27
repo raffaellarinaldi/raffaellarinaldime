@@ -1,0 +1,33 @@
+{% extends '../layouts/base.njk' %}
+{% block content %}
+	{% include 'common/header.njk' %}
+	<section class="section pt-5 px-3 px-lg-0">
+		<div class="container">
+			{% for talk in collections.talks %}
+				<div class="row mb-5{{ '' if loop.first else ' flex-column flex-lg-row' }} bg-white shadow-sm">
+					<div class="col-12 col-auto talk-media-holder ratio ratio-16x9 me-md-3">
+						{% if talk.data.categories == 'Video' %}
+							{% set faIcon = "video" %}
+							<iframe class="embed-responsive-item" width="560" height="315" src="https://www.youtube-nocookie.com/embed/{{ talk.data.media_id }}?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+						{% elif talk.data.categories == 'Audio' %}
+							{% set faIcon = "headphones" %}
+							<iframe class="embed-responsive-item" width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/{{ talk.data.media_id }}&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
+						{% endif %}
+					</div>
+					<div class="col p-4">
+						<h4>{{ talk.data.title }}</h4>
+						<ul class="talk-meta list-inline{{ '' if loop.last else ' mb-2' }}">
+							<li class="list-inline-item me-3"><i class="far fa-clock me-2"></i>{{ talk.data.post_date | date }}</li>
+							<li class="list-inline-item"><i class="fas fa-{{ faIcon }} me-2"></i>{{ talk.data.categories }}</li>
+						</ul>
+						<div class="talk-content">
+							{{ talk.content | safe }}
+						</div>
+					</div>
+				</div>
+            {% endfor %}
+        </div>
+    </section>
+	{% include 'common/cta.njk' %}
+	{% include 'common/footer.njk' %}
+{% endblock %}

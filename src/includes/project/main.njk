@@ -1,0 +1,14 @@
+<div class="section-row">
+    <div class="mb-5">
+        <img class="img-fluid" src="/assets/img/projects/{{ title | slugify | url }}-mockup.jpg" alt="{{ title }}">
+    </div>
+    <!--<h3 class="section-title">{{ title }}</h3>-->
+    {{ content | safe }}
+    <div class="mb-5">
+        <a class="btn btn-primary" href="{{ links.demo if links.demo else url }}" target="_blank" rel="nofollow noreferrer noopener"><i class="fas fa-external-link-alt me-2"></i> View Live Site</a>
+        {% if links.github %}
+            <a class="btn btn-secondary" href="{{ links.github }}" target="_blank" rel="nofollow noreferrer noopener"><i class="fab fa-github-alt me-2"></i> View on GitHub</a>
+        {% endif %}
+    </div>
+    <!--content-->
+</div>

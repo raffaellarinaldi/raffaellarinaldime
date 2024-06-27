@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>{{ title}} — {{ site.title }}</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{{ description if description else site.description }}">
+    <meta name="generator" content="Eleventy {% 11ty_version %}">
+    {% if layout == 'project' or layout == 'error404' %}
+      <meta name="robots" content="none">
+    {% endif %}
+    <meta name="author" content="{{ site.title }}">
+    <link rel="icon" type="image/x-icon" href="{{ '/favicon.ico' | url }}">
+    <link id="theme-style" rel="stylesheet" type="text/css" href="{{ '/assets/css/styles.min.css' | url }}">
+    {% if layout == 'home' %}
+      <link rel="stylesheet" type="text/css" href="{{ '/assets/css/flickity.min.css' | url }}">
+    {% endif %}
+    {% if layout == 'project' %}
+      <link rel="stylesheet" type="text/css" href="{{ '/assets/css/simple-lightbox.min.css' | url }}">
+    {% endif %}
+    {% if layout == 'post' or layout == 'project' %}
+      <link rel="stylesheet" type="text/css" href="{{ '/assets/css/atom-one-dark.min.css' | url }}">
+    {% endif %}
+    <script defer src="{{ '/assets/js/fontawesome.min.js' | url }}"></script>
+  </head>
+  <body>
+    {% block content %}{% endblock %}
+    <script type="text/javascript" src="{{ '/assets/js/bootstrap.bundle.min.js' | url }}"></script>
+    <script type="text/javascript" src="{{ '/assets/js/vanilla-back-to-top.min.js' | url }}"></script>
+    {% if layout == 'home' %}
+      <script type="text/javascript" src="{{ '/assets/js/flickity.pkgd.min.js' | url }}"></script>
+    {% endif %}
+    {% if layout == 'projects' %}
+      <script type="text/javascript" src="{{ '/assets/js/imagesloaded.pkgd.min.js' | url }}"></script>
+      <script type="text/javascript" src="{{ '/assets/js/isotope.pkgd.min.js' | url }}"></script>
+    {% endif %}
+    {% if layout == 'post' or layout == 'project' %}
+      <script type="text/javascript" src="{{ '/assets/js/highlight.min.js' | url }}"></script>
+    {% endif %}
+    {% if layout == 'project' %}
+      <script type="text/javascript" src="{{ '/assets/js/simple-lightbox.min.js' | url }}"></script>
+    {% endif %}
+    <script type="text/javascript">
+      "use strict";
+      {% include '../assets/js/modules/main.js' %}
+      {% if layout == 'home' %}
+        {% include '../assets/js/modules/flickityCustom.js' %}
+      {% endif %}
+      {% if layout == 'projects' %}
+        {% include '../assets/js/modules/isotopeCustom.js' %}
+      {% endif %}
+      {% if layout == 'contact' %}
+        {% include '../assets/js/modules/contactForm.js' %}
+      {% endif %}
+      {% if layout == 'post' or layout == 'project' %}
+        {% include '../assets/js/modules/codeHighlight.js' %}
+      {% endif %}
+      {% if layout == 'project' %}
+        {% include '../assets/js/modules/lightboxCustom.js' %}
+      {% endif %}
+    </script>
+  </body>
+</html>

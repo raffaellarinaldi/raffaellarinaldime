@@ -1,0 +1,45 @@
+<div class="top-bar theme-bg-primary-darken">
+    <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg navbar-dark position-relative">
+            <ul class="social-list list-inline mb-0">
+                {% for network in site.network %}
+                    {% if loop.index <= 5 %}
+                        <li class="list-inline-item"><a class="text-white" href="{{ network.link }}" target="_blank" rel="nofollow noreferrer noopener"><i class="fab fa-{{ network.icon }} fa-fw"></i></a></li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse text-uppercase" id="navigation">
+                {% set navPages = collections.all | eleventyNavigation %}
+                {% macro renderNavListItem(entry) %}
+                    {% if (entry.url == page.url) or (entry.title == eleventyNavigation.parent) %}
+                        {% set isActive = true %}
+                    {% endif %}
+                    {% if entry.children.length and entry.key != 'Projects' and entry.key != 'Blog' %}
+                        <li class="nav-item dropdown me-0{{ ' active' if isActive else '' }}">
+                            <a class="nav-link dropdown-toggle" href="{{ entry.url }}" id="navigationLink" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ entry.title }}</a>
+                            <div class="dropdown-menu dropdown-menu-right text-capitalize shadow-lg" aria-labelledby="navigationLink">
+                                {% for child in entry.children %}
+                                    <a class="dropdown-item" href="{{ child.url }}">{{ child.title }}</a>
+                                {% endfor %}
+                            </div>
+                        </li>
+                    {% else %}
+                        <li class="nav-item me-lg-3">
+                            <a class="nav-link{{ ' active' if isActive else '' }}" href="{{ entry.url | url }}">{{ entry.title }}{% if isActive %} <span class="sr-only">(current)</span>{% endif %}</a>
+                        </li>
+                    {% endif %}
+				{% endmacro %}
+                <ul class="navbar-nav ms-lg-auto">
+                    {% for entry in navPages %}{{ renderNavListItem(entry) }}{% endfor %}
+                    <!--<li class="nav-item me-lg-3">-->
+                    <!--    <a class="nav-link" href="#">Italiano</a>-->
+                    <!--</li>-->
+				</ul>
+				<span id="slide-line"></span>
+			</div>
+		</nav>
+	</div>
+</div>

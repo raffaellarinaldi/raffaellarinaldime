@@ -1,0 +1,27 @@
+{% extends '../layouts/base.njk' %}
+{% block content %}
+	{% include 'common/header.njk' %}
+	<section class="single-post-wrapper single-col-max-width py-5 px-4 mx-auto">
+		<div class="section-row">
+			<div class="cover-image mb-4"><img class="img-fluid" src="/assets/img/blog/{{image | url }}" alt="{{ title }}"></div>
+			<p>{{ description }}</p>
+			<p class="my-5 text-center">
+				<a class="btn btn-primary me-lg-3 mb-3" href="{{ links.demo }}" target="_blank" rel="nofollow noreferrer noopener"><i class="fas fa-desktop me-2"></i> View Live Demo</a>
+				<a class="btn btn-secondary mb-3" href="{{ links.github }}" target="_blank" rel="nofollow noreferrer noopener"><i class="fab fa-github-alt me-2"></i> View on GitHub</a>
+			</p>
+			<blockquote class="blockquote theme-blockquote text-center">
+				<span class="fa-layers fa-fw mb-3">
+					<i class="fas fa-circle text-secondary" data-fa-transform="grow-12"></i>
+					<i class="fa-inverse fas fa-quote-right text-white" data-fa-transform="shrink-4"></i>
+				</span>
+				<p class="mb-3 font-italic">{{ quote.text }}</p>
+				<footer class="blockquote-footer mt-0"><cite title="Source Title">{{ quote.author }}</cite></footer>
+			</blockquote>
+		</div>
+		<!--content-->
+		{% include 'post/footer.njk' %}
+	</section>
+{% include 'post/related.njk' %}
+{% include 'common/cta.njk' %}
+{% include 'common/footer.njk' %}
+{% endblock %}

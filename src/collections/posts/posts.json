@@ -1,0 +1,9 @@
+{
+  "layout": "post",
+  "tags": "",
+  "permalink": "/blog/{{ page.fileSlug }}/",
+  "eleventyNavigation": {
+    "parent": "Blog"
+  },
+  "templateEngineOverride": "njk,md"
+}

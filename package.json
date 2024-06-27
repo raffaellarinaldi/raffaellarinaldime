@@ -1,0 +1,31 @@
+{
+  "name": "raffaella.dev",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "install": "npm i --save file:src/common/base",
+    "clean": "rm -rf ./.cache ./dist ./node_modules ./src/common/base/node_modules ./src/assets/css/vendor ./src/static/assets/css ./src/static/assets/js",
+    "link": "npm link gulp gulp-rename",
+    "gulp": "gulp",
+    "setup": "npm-run-all -s clean install link gulp",
+    "serve": "ELEVENTY_ENV=development npx @11ty/eleventy --serve",
+    "start": "npm-run-all -s setup -p serve",
+    "build": "npm run setup && ELEVENTY_ENV=production npx @11ty/eleventy",
+    "debug": "DEBUG=* npx @11ty/eleventy"
+  },
+  "author": "Raffaella Rinaldi",
+  "license": "ISC",
+  "keywords": [],
+  "repository": {
+    "type": "git",
+    "url": "git+https://raffaellarinaldi@github.com/raffaellarinaldi/raffaelladev.git"
+  },
+  "bugs": {
+    "url": "https://github.com/raffaellarinaldi/raffaelladev/issues"
+  },
+  "homepage": "https://github.com/raffaellarinaldi/raffaelladev#readme",
+  "dependencies": {
+    "11tybase": "file:src/common/base"
+  }
+}

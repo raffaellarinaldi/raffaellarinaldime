@@ -1,0 +1,26 @@
+{% extends '../layouts/base.njk' %}
+{% block content %}
+	{% include 'common/header.njk' %}
+	<article class="resume-wrapper text-center position-relative">
+		<div class="resume-wrapper-inner mx-auto text-start bg-white shadow-lg">
+			{% include 'resume/header.njk' %}
+			<div class="resume-body p-5">
+				<section class="resume-section summary-section mb-5">
+					<h2 class="resume-section-title text-uppercase font-weight-bold pb-3 mb-3">Career Summary</h2>
+					<div class="resume-section-content">
+						<p class="mb-0">{{ content | safe }}</p>
+					</div>
+				</section>
+				<div class="row">
+					<div class="col-lg-8">
+						{% include 'resume/main.njk' %}
+					</div>
+					<div class="col-lg-4">
+						{% include 'resume/sidebar.njk' %}
+					</div>
+				</div>
+			</div>
+		</div>
+	</article>
+{% include 'common/footer.njk' %}
+{% endblock %}

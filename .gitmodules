@@ -1,0 +1,3 @@
+[submodule "src/common/base"]
+	path = src/common/base
+	url = https://github.com/raffaellarinaldi/11tybase.git

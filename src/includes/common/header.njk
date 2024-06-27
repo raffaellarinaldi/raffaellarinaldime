@@ -1,0 +1,91 @@
+<header class="header"{% if layout == 'post' %} id="blog-post-top"{% endif %}>
+	{% include 'common/topbar.njk' %}
+	{% if layout == 'home' %}
+		<div class="header-intro theme-bg-primary text-white py-5">
+			<div class="container">
+				<div class="profile-teaser row gx-lg-5 justify-content-center">
+					<div class="col-12 col-md-auto text-center text-md-start">
+						<img class="profile-image mb-3 mb-lg-0 ms-md-0 rounded mx-auto" src="{{ '/assets/img/profile.svg' | url }}" alt="{{ site.title }}">
+					</div>
+					<div class="col text-center text-md-start">
+						<div class="lead">Hello, my name is</div>
+						<h2 class="mt-0 display-4 font-weight-bold">{{ site.title }}</h2>
+						<div class="bio mb-3">I'm a proficient online presence specialist with expertise in website development, marketing automation and social media services. <!--I write about my professional discoveries on <a class="link-on-bg text-link" href="{{ '/blog/' | url }}">my blog</a> and regularly <a class="link-on-bg text-link" href="{{ '/talks/' | url }}">speak</a> at various web conferences and meetups.--> Want to know how I may help your project? Check out my project <a class="link-on-bg text-link" href="{{ '/projects/' | url }}">case studies</a> and <a class="link-on-bg text-link" href="{{ '/resume/' | url }}">resume</a>.</div>
+						<a class="theme-btn-on-bg btn font-weight-bold theme-btn-cta" href="{{ '/contact/' | url }}">Get in Touch</a>
+					</div>
+				</div>
+			</div>
+		</div>
+    {% elif layout == 'projects' %}
+		<div class="header-intro theme-bg-primary text-white py-5">
+			<div class="container">
+				<h2 class="page-heading mb-3">Projects</h2>
+				<div class="page-heading-tagline">In-depth Case Studies to show you what I can offer and how I work.</div>
+			</div>
+		</div>
+    {% elif layout == 'talks' %}
+		<div class="header-intro theme-bg-primary text-white py-5">
+			<div class="container">
+				<h2 class="page-heading mb-3">Talks</h2>
+				<div class="page-heading-tagline">Want me to talk at your event? <br class="d-md-none"> <a class="link-on-bg text-link" href="{{ '/contact/' | url }}">Get in touch</a></div>
+			</div>
+		</div>
+    {% elif layout == 'resume' %}
+		<div class="header-intro header-intro-resume theme-bg-primary text-white py-5">
+			<div class="container position-relative">
+				<h2 class="page-heading mb-3">Resume</h2>
+				<!--<a class="btn theme-btn-on-bg download-resume position-absolute font-weight-bold mx-auto" href="#" target="_blank" rel="nofollow noreferrer noopener"><i class="fas fa-download me-2"></i>Download PDF Version</a>-->
+			</div>
+		</div>
+    {% elif layout == 'posts' %}
+		<div class="header-intro theme-bg-primary text-white py-5">
+			<div class="container position-relative">
+				<div class="row g-2 g-lg-3">
+					<div class="col-12 col-md-auto">
+						<img class="profile-medium d-inline-block rounded-circle me-md-4 align-self-center mb-2 mb-lg-0" src="{{ '/assets/img/profile.svg' | url }}" alt="{{ site.title }}">
+					</div>
+					<div class="col align-self-center">
+						<h2 class="page-heading mb-2">{{ site.title }}'s Blog</h2>
+						<div class="page-heading-tagline mb-3">I write about web development and life as a developer. <br class="d-lg-block d-none">You can follow me via the various channels below:</div>
+						<ul class="social-list-square list-inline mb-0">
+							{% for network in site.network %}
+								<li class="list-inline-item mb-3 mb-lg-0"><a href="{{ network.link }}" target="_blank" rel="nofollow noreferrer noopener"><i class="fab fa-{{ network.icon }} fa-fw text-white"></i></a></li>
+							{% endfor %}
+						</ul>
+					</div>
+				</div>
+			</div>
+        </div>
+    {% elif layout == 'post' %}
+		<div class="header-intro theme-bg-primary text-white py-5">
+			<div class="container text-center">
+				<h2 class="page-heading mb-1">{{ title }}</h2>
+				<div class="page-heading-tagline mx-auto mb-3">{{ type }}</div>
+				<img class="profile-small d-inline-block rounded-circle mb-3" src="{{ '/assets/img/profile.svg' | url }}" alt="{{ site.title }}">
+				<ul class="page-heading-post-meta list-inline mb-0">
+					<li class="list-inline-item me-3"><i class="far fa-clock me-2"></i>{{ date | date }}</li>
+					<li class="list-inline-item"><i class="fas fa-comment me-2"></i><a class="text-link" href="{{ url | url }}#comments-block">8 Comments</a></li>
+				</ul>
+			</div>
+		</div>
+	{% elif layout == 'project' %}
+		<div class="header-intro theme-bg-primary text-white py-5">
+			<div class="container position-relative">
+				<h2 class="page-heading mb-2">{{ title }}</h2>
+				<div class="page-heading-tagline">{{ slogan }}</div>
+				<div class="page-heading-logo font-weight-bold position-absolute mt-4 mt-md-0">
+					<img class="client-logo" src="/assets/img/projects/{{ title | slugify | url }}-logo-light.svg">
+				</div>
+			</div>
+		</div>
+    {% else %}
+		<div class="header-intro theme-bg-primary text-white py-5">
+			<div class="container">
+				<h2 class="page-heading {{ 'mb-3' if layout == 'error404' else 'mb-0' }}">{{ title }}</h2>
+				{% if layout == 'error404' %}
+					<div class="page-heading-tagline">{{ description }}</div>
+				{% endif %}
+			</div>
+		</div>
+	{% endif %}
+</header>

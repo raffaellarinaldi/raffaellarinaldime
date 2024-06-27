@@ -1,0 +1,54 @@
+<section class="resume-section experience-section mb-5">
+	<h2 class="resume-section-title text-uppercase font-weight-bold pb-3 mb-3">Work Experience</h2>
+	<div class="resume-section-content">
+		<div class="resume-timeline position-relative">
+			{% for job in collections.jobs | reverse %}
+				<article class="resume-timeline-item position-relative{{ '' if loop.last else ' pb-5' }}">
+					<div class="resume-timeline-item-header mb-2">
+						<div class="d-flex flex-column flex-md-row">
+							<h3 class="resume-position-title font-weight-bold mb-1">{{ job.data.position }}{% if job.data.type %} <small class="text-muted">({{ job.data.type }})</small>{% endif %}</h3>
+							<div class="resume-company-name ms-auto">{{ job.data.company }}</div>
+						</div>
+						<div class="resume-position-time">{{ job.data.from }} - {{ job.data.to }}</div>
+					</div>
+					<div class="resume-timeline-item-desc">
+						{{ job.content | safe }}
+						{% if job.data.achievements %}
+							{% for achievement in job.data.achievements %}
+								<h4 class="resume-timeline-item-desc-heading font-weight-bold">Achievements</h4>
+								<p>{{ achievement.intro }}</p>
+								{% if achievement.list %}
+									<ul>
+										{% for item in achievement.list %}
+											<li>{{ item }}</li>
+										{% endfor %}
+									</ul>
+								{% endif %}
+							{% endfor %}
+						{% endif %}
+						{% if job.data.projects %}
+							<h4 class="resume-timeline-item-desc-heading font-weight-bold">Examples</h4>
+							<p class="mb-0">Here is a selection of cases for the job title of {{ job.data.position | lower }}:</p>
+							{% macro renderProjects(entry) %}
+								{% for project in collections.projects %}
+									{% if entry == project.data.title %}
+										<li class="list-inline-item"><a class="text-link" href="{{ project.url | url }}">{{ project.data.title }}</a></li>
+									{% endif %}
+								{% endfor %}
+							{% endmacro %}
+							<ul class="list-inline">
+								{% for project in job.data.projects %}{{ renderProjects(project) }}{% endfor %}
+							</ul>
+						{% endif %}
+						<h4 class="resume-timeline-item-desc-heading font-weight-bold">Technologies used:</h4>
+						<ul class="list-inline">
+							{% for tag in job.data.tags %}
+								<li class="list-inline-item"><span class="badge bg-secondary badge-pill">{{ tag }}</span></li>
+							{% endfor %}
+						</ul>
+					</div>
+				</article>
+			{% endfor %}
+		</div>
+	</div>
+</section>

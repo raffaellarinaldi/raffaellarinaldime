@@ -1,0 +1,14 @@
+<section class="section{{ '-cta' if layout == 'home' else ''}} py-5 bg-primary text-white">
+    <div class="container">
+        <div class="text-center">
+            <img class="profile-small d-inline-block mx-auto rounded-circle mb-2" src="{{ '/assets/img/profile.svg' | url }}" alt="{{ site.title }}">
+        </div>
+        <h3 class="section-title font-weight-bold text-center mb-2">Interested in hiring me for your project?</h3>
+        <div class="section-intro mx-auto text-center mb-3">
+            Looking for an experienced online presence specialist to enhance your digital operations? To start an initial chat, just drop me an email at <a class="link-on-bg text-link" href="mailto:{{ site.email }}">{{ site.email }}</a> or use the <a class="link-on-bg text-link" href="{{ '/contact/' | url }}">form on the contact page</a>.
+        </div>
+        <div class="text-center">
+            <a class="theme-btn-on-bg btn" href="{{ '/contact/' | url }}">Let's Talk</a>
+        </div>
+    </div>
+</section>
