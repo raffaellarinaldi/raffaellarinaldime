@@ -1,3 +1,21 @@
+{% set translations = {
+	'it': {
+		'home': {
+			'lead': 'Ciao, io sono',
+			'bio': 'Sono una specialista della presenza online con esperienza nello sviluppo di siti web, marketing automation e social media. Vuoi capire come lavoro e cosa posso offrirti? Consulta il mio <a class="link-on-bg text-link" href="URL1">portfolio</a> e <a class="link-on-bg text-link" href="URL2">curriculum</a>.',
+			'button': 'Sentiamoci',
+			'slug': ['/portfolio/', '/curriculum/', '/blog/', '/contatti/']
+		}
+	},
+	'en': {
+		'home': {
+			'lead': 'Hello, my name is',
+			'bio': 'I\'m a proficient online presence specialist with expertise in website development, marketing automation and social media. Want to know how I may help your project? Check out my <a class="link-on-bg text-link" href="URL1">portfolio</a> and <a class="link-on-bg text-link" href="URL2">resume</a>.',
+			'button': 'Get In Touch',
+			'slug': ['/en/portfolio/', '/en/resume/', '/en/blog/', '/en/contact/']
+		}
+	}
+} %}
 <header class="header"{% if layout == 'post' %} id="blog-post-top"{% endif %}>
 	{% include 'common/topbar.njk' %}
 	{% if layout == 'home' %}
@@ -8,36 +26,37 @@
 						<img class="profile-image mb-3 mb-lg-0 ms-md-0 rounded mx-auto" src="{{ '/assets/img/profile.svg' | url }}" alt="{{ site.title }}">
 					</div>
 					<div class="col text-center text-md-start">
-						<div class="lead">Hello, my name is</div>
+						<div class="lead">{{ translations[lang].home.lead }}</div>
 						<h2 class="mt-0 display-4 font-weight-bold">{{ site.title }}</h2>
-						<div class="bio mb-3">I'm a proficient online presence specialist with expertise in website development, marketing automation and social media services. <!--I write about my professional discoveries on <a class="link-on-bg text-link" href="{{ '/blog/' | url }}">my blog</a> and regularly <a class="link-on-bg text-link" href="{{ '/talks/' | url }}">speak</a> at various web conferences and meetups.--> Want to know how I may help your project? Check out my project <a class="link-on-bg text-link" href="{{ '/projects/' | url }}">case studies</a> and <a class="link-on-bg text-link" href="{{ '/resume/' | url }}">resume</a>.</div>
-						<a class="theme-btn-on-bg btn font-weight-bold theme-btn-cta" href="{{ '/contact/' | url }}">Get in Touch</a>
+						<div class="bio mb-3">{{ translations[lang].home.bio | replace('URL1', translations[lang].home.slug[0] | url) | replace('URL2', translations[lang].home.slug[1] | url) | safe }}<!--I write about my professional discoveries on <a class="link-on-bg text-link" href="{{ '/blog/' | url }}">my blog</a> and regularly <a class="link-on-bg text-link" href="{{ '/talks/' | url }}">speak</a> at various web conferences and meetups.-->
+						</div>
+						<a class="theme-btn-on-bg btn font-weight-bold theme-btn-cta" href="{{ translations[lang].home.slug[3] | url }}">{{ translations[lang].home.button }}</a>
 					</div>
 				</div>
 			</div>
 		</div>
-    {% elif layout == 'projects' %}
+	{% elif layout == 'projects' %}
 		<div class="header-intro theme-bg-primary text-white py-5">
 			<div class="container">
-				<h2 class="page-heading mb-3">Projects</h2>
-				<div class="page-heading-tagline">In-depth Case Studies to show you what I can offer and how I work.</div>
+				<h2 class="page-heading mb-3">{{ title }}</h2>
+				<div class="page-heading-tagline">{{ subtitle }}</div>
 			</div>
 		</div>
-    {% elif layout == 'talks' %}
+	{% elif layout == 'talks' %}
 		<div class="header-intro theme-bg-primary text-white py-5">
 			<div class="container">
 				<h2 class="page-heading mb-3">Talks</h2>
 				<div class="page-heading-tagline">Want me to talk at your event? <br class="d-md-none"> <a class="link-on-bg text-link" href="{{ '/contact/' | url }}">Get in touch</a></div>
 			</div>
 		</div>
-    {% elif layout == 'resume' %}
+	{% elif layout == 'resume' %}
 		<div class="header-intro header-intro-resume theme-bg-primary text-white py-5">
 			<div class="container position-relative">
-				<h2 class="page-heading mb-3">Resume</h2>
+				<h2 class="page-heading mb-3">{{ title }}</h2>
 				<!--<a class="btn theme-btn-on-bg download-resume position-absolute font-weight-bold mx-auto" href="#" target="_blank" rel="nofollow noreferrer noopener"><i class="fas fa-download me-2"></i>Download PDF Version</a>-->
 			</div>
 		</div>
-    {% elif layout == 'posts' %}
+	{% elif layout == 'posts' %}
 		<div class="header-intro theme-bg-primary text-white py-5">
 			<div class="container position-relative">
 				<div class="row g-2 g-lg-3">
@@ -55,8 +74,8 @@
 					</div>
 				</div>
 			</div>
-        </div>
-    {% elif layout == 'post' %}
+		</div>
+	{% elif layout == 'post' %}
 		<div class="header-intro theme-bg-primary text-white py-5">
 			<div class="container text-center">
 				<h2 class="page-heading mb-1">{{ title }}</h2>
@@ -72,18 +91,18 @@
 		<div class="header-intro theme-bg-primary text-white py-5">
 			<div class="container position-relative">
 				<h2 class="page-heading mb-2">{{ title }}</h2>
-				<div class="page-heading-tagline">{{ slogan }}</div>
+				<div class="page-heading-tagline">{{ subtitle }}</div>
 				<div class="page-heading-logo font-weight-bold position-absolute mt-4 mt-md-0">
 					<img class="client-logo" src="/assets/img/projects/{{ title | slugify | url }}-logo-light.svg">
 				</div>
 			</div>
 		</div>
-    {% else %}
+	{% else %}
 		<div class="header-intro theme-bg-primary text-white py-5">
 			<div class="container">
 				<h2 class="page-heading {{ 'mb-3' if layout == 'error404' else 'mb-0' }}">{{ title }}</h2>
 				{% if layout == 'error404' %}
-					<div class="page-heading-tagline">{{ description }}</div>
+					<div class="page-heading-tagline">{{ subtitle }}</div>
 				{% endif %}
 			</div>
 		</div>

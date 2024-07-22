@@ -1,11 +1,10 @@
 ---
 title: Marco Albiero
-slogan: Designer / Illustrator / Mangaka
+subtitle: Designer / Illustrator / Mangaka
 type: Portfolio
 categories: [SaaS]
 tags: [Adobe]
-description: |
-  WordPress-based site for a professional illustrator revamped using Adobe Portfolio, enhancing speed, functionality, and SEO optimization.
+description: Sito web basato su WordPress per un illustratore professionale rinnovato utilizzando Adobe Portfolio, migliorando velocità, funzionalità e ottimizzazione SEO.
 links:
   demo: https://www.marcoalbiero.it
 stats:
@@ -15,7 +14,7 @@ stats:
 technologies: [adobe-portfolio, cloudflare, meta, youtube, linkedin]
 testimonial:
   person: Marco Albiero
-  role: Artist
-  text: Raffaella revamped my portfolio with extraordinary precision, tailoring the site for my needs. Her insightful guidance led to a delightfully swift and user-friendly outcome.
+  role: Artista
+  text: Raffaella ha rinnovato il mio portfolio con straordinaria precisione, adattando il sito alle mie esigenze. La sua guida illuminante ha portato a un risultato velocissimo e user-friendly che mi ha deliziato.
 ---
-Website created for a professional illustrator using Adobe Portfolio, a specific service by Adobe for building a graphic portfolio. It features a simple gallery of illustrations divided into pages. The project was initially based on WordPress but was converted to this platform for better media management. Post-conversion, the site gained in speed and functionality. The starting theme is provided by Adobe and modified to meet the client's needs. Despite being a third-party platform, efforts were made for SEO optimization where possible.
+Sito web creato per un illustratore professionale utilizzando Adobe Portfolio, un servizio specifico di Adobe per la creazione di portfoli grafici. Presenta una semplice galleria di illustrazioni suddivise in pagine. Il progetto era inizialmente basato su WordPress ma è stato convertito a questa piattaforma per una migliore gestione dei media. Dopo la conversione, il sito ha guadagnato in velocità e funzionalità. Il tema di base è fornito da Adobe e è stato modificato per soddisfare le esigenze del cliente. Nonostante sia una piattaforma di terze parti, sono stati fatti sforzi per l'ottimizzazione SEO dove possibile.

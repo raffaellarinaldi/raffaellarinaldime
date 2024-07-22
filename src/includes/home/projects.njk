@@ -1,9 +1,20 @@
+{% set translations = {
+    'it': {
+        'title': 'Progetti in Evidenza',
+        'button': 'Vedi tutti',
+        'slug': '/portfolio/'
+    },
+    'en': {
+        'title': 'Featured Projects',
+        'button': 'View all',
+        'slug': '/en/portfolio/'
+    }
+} %}
 <section class="section-featured-projects py-5">
 	<div class="container">
-		<h3 class="section-title font-weight-bold text-center mb-5">Featured Projects</h3>
+		<h3 class="section-title font-weight-bold text-center mb-5">{{ translations[lang].title }}</h3>
 		<div class="project-cards row mb-5">
-			{% for project in collections.projects | featured %}
-				{% if loop.index <= 3 %}
+			{% for project in collections.projects | featured(true) %}
 					<div class="col-12 col-lg-4">
 						<div class="card rounded-0 border-0 shadow-sm mb-5 mb-lg-0">
 							<div class="card-img-container position-relative">
@@ -32,11 +43,10 @@
 							</div>
 						</div>
 					</div>
-				{% endif %}
 			{% endfor %}
 		</div>
 		<div class="text-center">
-			<a class="btn btn-primary" href="{{'/projects/' | url }}">View all projects</a>
+			<a class="btn btn-primary" href="{{ translations[lang].slug | url }}">{{ translations[lang].button }}</a>
 		</div>
 	</div>
 </section>

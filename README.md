@@ -1,4 +1,4 @@
-# Setup Website for Raffaella
+# Setup Website for Raffaella Rinaldi
 
 First, make sure you install the required global dependencies.
 
@@ -19,7 +19,7 @@ Check for submodule updates.
 
 `git submodule update --remote`
 
-## [https://www.raffaellarinaldi.com/](https://www.raffaellarinaldi.com/)
+## [https://www.raffaellarinaldi.dev/](https://www.raffaellarinaldi.dev/)
 
 Start Eleventy.
 

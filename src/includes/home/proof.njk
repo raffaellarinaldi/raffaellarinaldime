@@ -1,12 +1,22 @@
+{% set translations = {
+    'it': {
+        'title': 'Clienti eccellenti con cui ho lavorato'
+    },
+    'en': {
+        'title': 'Great clients I\'ve worked with'
+    }
+} %}
 <section class="section-proof section bg-white py-5">
 	<div class="container">
-		<h3 class="section-title font-weight-bold text-center mb-5">Great clients I've worked with</h3>
+		<h3 class="section-title font-weight-bold text-center mb-5">{{ translations[lang].title }}</h3>
 		<div class="logos row mb-5">
 			{% for project in collections.projects %}
-				{% if project.data.testimonial.person %}
-					<div class="logo px-3 col-6 col-md-4 col-lg-2 me-0 px-md-5 px-lg-4">
-						<a class="logo-link" href="{{ project.url | url }}"><img class="img-fluid svg-ie-fix" src="/assets/img/projects/{{ project.data.title | slugify | url }}-logo-dark.svg"></a>
-					</div>
+				{% if project.lang == lang %}
+					{% if project.data.testimonial.person %}
+						<div class="logo px-3 col-6 col-md-4 col-lg-2 me-0 px-md-5 px-lg-4">
+							<a class="logo-link" href="{{ project.url | url }}"><img class="img-fluid svg-ie-fix" src="/assets/img/projects/{{ project.data.title | slugify | url }}-logo-dark.svg"></a>
+						</div>
+					{% endif %}
 				{% endif %}
 			{% endfor %}
 		</div>
@@ -14,34 +24,36 @@
 	<div class="container-fluid">
 		<div class="testimonials">
 			{% for project in collections.projects %}
-				{% if project.data.testimonial.person %}
-					<div class="testimonial-item">
-						<div class="position-relative p-5 shadow">
-							<blockquote class="blockquote ps-4">
-								<p class="mb-4">{{ project.data.testimonial.text | safe }}</p>
-								<i class="quote-icon fas fa-quote-left {{ 'fa-lg ' if loop.first else ''}}position-absolute text-primary"></i>
-								<footer class="blockquote-footer presudo-hidden mt-4">
-									<div class="row client-profile">
-										<div class="col-12 col-md-auto">
-											<img src="/assets/img/clients/{{ project.data.testimonial.person | slugify | url }}.jpg" alt="{{ project.data.testimonial.person }}">
+				{% if project.lang == lang %}
+					{% if project.data.testimonial.person %}
+						<div class="testimonial-item">
+							<div class="position-relative p-5 shadow">
+								<blockquote class="blockquote ps-4">
+									<p class="mb-4">{{ project.data.testimonial.text | safe }}</p>
+									<i class="quote-icon fas fa-quote-left {{ 'fa-lg ' if loop.first else ''}}position-absolute text-primary"></i>
+									<footer class="blockquote-footer presudo-hidden mt-4">
+										<div class="row client-profile">
+											<div class="col-12 col-md-auto">
+												<img src="/assets/img/clients/{{ project.data.testimonial.person | slugify | url }}.jpg" alt="{{ project.data.testimonial.person }}">
+											</div>
+											<div class="col">
+												<cite title="Source" class="quote-source d-inline-block font-style-normal pt-3">
+													<span class="d-block">{{ project.data.testimonial.person }}</span>
+													<span class="d-block">{{ project.data.testimonial.role }}{% if project.data.testimonial.person != project.data.title %} ({{ project.data.title }}){% endif %}</span>
+													{% if project.data.testimonial.linkedin %}
+														<span class="d-block position-absolute source-link">
+														<i class="fab fa-linkedin fa-2x me-1" data-fa-transform="down-3"></i>
+														<a class="text-secondary text-link" href="{{ project.data.testimonial.linkedin }}" target="_blank" rel="nofollow noreferrer noopener">View on Linkedin <i class="fas fa-external-link-alt ms-1" data-fa-transform="up-1"></i></a>
+													{% endif %}
+													</span>
+												</cite>
+											</div>
 										</div>
-										<div class="col">
-											<cite title="Source" class="quote-source d-inline-block font-style-normal pt-3">
-												<span class="d-block">{{ project.data.testimonial.person }}</span>
-												<span class="d-block">{{ project.data.testimonial.role }}{% if project.data.testimonial.person != project.data.title %} ({{ project.data.title }}){% endif %}</span>
-												{% if project.data.testimonial.linkedin %}
-													<span class="d-block position-absolute source-link">
-													<i class="fab fa-linkedin fa-2x me-1" data-fa-transform="down-3"></i>
-													<a class="text-secondary text-link" href="{{ project.data.testimonial.linkedin }}" target="_blank" rel="nofollow noreferrer noopener">View on Linkedin <i class="fas fa-external-link-alt ms-1" data-fa-transform="up-1"></i></a>
-												{% endif %}
-												</span>
-											</cite>
-										</div>
-									</div>
-								</footer>
-							</blockquote>
+									</footer>
+								</blockquote>
+							</div>
 						</div>
-					</div>
+					{% endif %}
 				{% endif %}
 			{% endfor %}
 		</div>

@@ -1,0 +1,9 @@
+{
+  "layout": "project",
+  "tags": "",
+  "permalink": "/en/portfolio/{{ page.fileSlug }}/",
+  "featured": "false",
+  "eleventyNavigation": {
+    "parent": "Portfolio"
+  }
+}

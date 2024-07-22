@@ -1,11 +1,10 @@
 ---
 title: ROSSI 2000
-slogan: Mold Design for Technical Rubber in Sarnico (BG)
+subtitle: Progettazione stampi per gomma tecnica a Sarnico (BG)
 type: Onepage
 categories: [Jamstack]
 tags: [Bootstrap]
-description: |
-  Developed a presentation website using Bootstrap and implemented local SEO strategies for a B2B mold workshop with Google tools.
+description: Ho sviluppato un sito web di presentazione utilizzando Bootstrap e implementato strategie di SEO locale per un'officina B2B di stampi, utilizzando strumenti di Google.
 links:
   demo: https://www.rossi2000.it
 stats:
@@ -15,7 +14,7 @@ stats:
 technologies: [bootstrap, iubenda, google-business]
 testimonial:
   person: Sergio Rossi
-  role: Owner
-  text: Raffaella brings a refreshing, modern, and professional touch to our website, turning our collaboration into a transformative journey toward excellence, beyond a mere service.
+  role: Titolare
+  text: Raffaella porta un tocco fresco, moderno e professionale al nostro sito web, trasformando la nostra collaborazione in un viaggio verso l'eccellenza, al di là di un semplice servizio.
 ---
-A presentation website was developed for a B2B mold design and production workshop. After analyzing the client's needs, which were not particularly complex, the choice was made to use Bootstrap as the development platform. The resulting one-page site includes a corporate presentation, product photos, and contact information. The development drew inspiration from a site provided by the client, creating and integrating a brand image with specific colors and fonts. In addition to the website, consultation was provided for the Google My Business profile, addressing both geographic SEO requirements and the integration of a map on the new site.
+È stato sviluppato un sito web di presentazione per un'officina B2B specializzata nella progettazione e produzione di stampi. Dopo un'analisi delle esigenze del cliente, non particolarmente complesse, è stata scelta Bootstrap come piattaforma di sviluppo. Il sito risultante è strutturato su una singola pagina e include una presentazione aziendale, foto dei prodotti e informazioni di contatto. Lo sviluppo si è ispirato a un sito fornito dal cliente, creando e integrando un'immagine aziendale con colori e caratteri specifici. Oltre al sito web, è stata fornita consulenza per il profilo Google My Business, affrontando sia le necessità di SEO geografica che l'integrazione di una mappa sul nuovo sito.

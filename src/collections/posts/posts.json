@@ -1,6 +1,7 @@
 {
   "layout": "post",
   "tags": "",
+  "lang": "it",
   "permalink": "/blog/{{ page.fileSlug }}/",
   "eleventyNavigation": {
     "parent": "Blog"

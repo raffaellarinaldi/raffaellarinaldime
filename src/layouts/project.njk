@@ -4,7 +4,7 @@
 	{% if true %}
 		<div class="project-wrapper container py-5">
 			<div class="row">
-				<section class="col-12 col-lg-8">
+				<section class="col-12 col-lg-8">{{ project | dump }}
 					{% include 'project/main.njk' %}
 					<!--content-->
 				</section>

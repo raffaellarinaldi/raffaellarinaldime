@@ -1,48 +1,80 @@
+{% set translations = {
+	'it': {
+		'experience': {
+			'title': 'Esperienza Lavorativa'
+		},
+		'achievements': {
+			'title': 'Risultati'
+		},
+		'examples': {
+			'title': 'Esempi',
+			'intro': 'Ecco una selezione di progetti dal mio portfolio come'			
+		},
+		'technologies': {
+			'title': 'Tecnologie utilizzate'
+		},
+		'present': 'presente'
+	},
+	'en': {
+		'experience': {
+			'title': 'Work Experience'
+		},
+		'achievements': {
+			'title': 'Achievements'
+		},
+		'examples': {
+			'title': 'Examples',
+			'intro': 'Here is a selection of projects from my portfolio as a'
+		},
+		'technologies': {
+			'title': 'Technologies used'
+		},
+		'present': 'present'
+	}
+} %}
 <section class="resume-section experience-section mb-5">
-	<h2 class="resume-section-title text-uppercase font-weight-bold pb-3 mb-3">Work Experience</h2>
+	<h2 class="resume-section-title text-uppercase font-weight-bold pb-3 mb-3">{{ translations[lang].experience.title }}</h2>
 	<div class="resume-section-content">
 		<div class="resume-timeline position-relative">
-			{% for job in collections.jobs | reverse %}
+			{% for job in resume.jobs | reverse %}
 				<article class="resume-timeline-item position-relative{{ '' if loop.last else ' pb-5' }}">
 					<div class="resume-timeline-item-header mb-2">
 						<div class="d-flex flex-column flex-md-row">
-							<h3 class="resume-position-title font-weight-bold mb-1">{{ job.data.position }}{% if job.data.type %} <small class="text-muted">({{ job.data.type }})</small>{% endif %}</h3>
-							<div class="resume-company-name ms-auto">{{ job.data.company }}</div>
+							<h3 class="resume-position-title font-weight-bold mb-1">{{ job.position[lang] }}{% if job.type[lang] %} <small class="text-muted">({{ job.type[lang] }})</small>{% endif %}</h3>
+							<div class="resume-company-name ms-auto">{{ job.company[lang] }}</div>
 						</div>
-						<div class="resume-position-time">{{ job.data.from }} - {{ job.data.to }}</div>
+						<div class="resume-position-time">{{ job.from }} - {{ job.to if job.to else translations[lang].present }}</div>
 					</div>
 					<div class="resume-timeline-item-desc">
-						{{ job.content | safe }}
-						{% if job.data.achievements %}
-							{% for achievement in job.data.achievements %}
-								<h4 class="resume-timeline-item-desc-heading font-weight-bold">Achievements</h4>
-								<p>{{ achievement.intro }}</p>
-								{% if achievement.list %}
-									<ul>
-										{% for item in achievement.list %}
-											<li>{{ item }}</li>
-										{% endfor %}
-									</ul>
-								{% endif %}
-							{% endfor %}
+						<p>{{ job.content[lang].description | safe }}</p>
+						{% if job.content[lang].achievements %}
+							<h4 class="resume-timeline-item-desc-heading font-weight-bold">{{ translations[lang].achievements.title }}</h4>
+							<p>{{ job.content[lang].achievements.intro }}</p>
+							{% if job.content[lang].achievements.list %}
+								<ul>
+									{% for item in job.content[lang].achievements.list %}
+										<li>{{ item }}</li>
+									{% endfor %}
+								</ul>
+							{% endif %}
 						{% endif %}
-						{% if job.data.projects %}
-							<h4 class="resume-timeline-item-desc-heading font-weight-bold">Examples</h4>
-							<p class="mb-0">Here is a selection of cases for the job title of {{ job.data.position | lower }}:</p>
+						{% if job.projects %}
+							<h4 class="resume-timeline-item-desc-heading font-weight-bold">{{ translations[lang].examples.title }}</h4>
+							<p class="mb-0">{{ translations[lang].examples.intro }} {{ job.position[lang] | lower }}:</p>
 							{% macro renderProjects(entry) %}
 								{% for project in collections.projects %}
-									{% if entry == project.data.title %}
+									{% if entry == project.data.title and project.lang == lang %}
 										<li class="list-inline-item"><a class="text-link" href="{{ project.url | url }}">{{ project.data.title }}</a></li>
 									{% endif %}
 								{% endfor %}
 							{% endmacro %}
 							<ul class="list-inline">
-								{% for project in job.data.projects %}{{ renderProjects(project) }}{% endfor %}
+								{% for project in job.projects %}{{ renderProjects(project) }}{% endfor %}
 							</ul>
 						{% endif %}
-						<h4 class="resume-timeline-item-desc-heading font-weight-bold">Technologies used:</h4>
+						<h4 class="resume-timeline-item-desc-heading font-weight-bold">{{ translations[lang].technologies.title }}:</h4>
 						<ul class="list-inline">
-							{% for tag in job.data.tags %}
+							{% for tag in job.tags %}
 								<li class="list-inline-item"><span class="badge bg-secondary badge-pill">{{ tag }}</span></li>
 							{% endfor %}
 						</ul>

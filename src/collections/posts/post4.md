@@ -1,4 +1,6 @@
 ---
+eleventyExcludeFromCollections: true
+permalink: false
 title: Learn React Components
 subtitle: The complete, step-by-step guide
 image: blog-post-thumb-4.jpg

@@ -1,11 +1,11 @@
 ---
 title: Associazione ANASTASIS
-slogan: Global support for cancer patients in Adro (BS)
+subtitle: Supporto globale ai pazienti oncologici ad Adro (BS)
 type: Website
 categories: [SaaS]
 tags: [Google]
 description: |
-  Revamped a local non-profit's website, converting an old WordPress site to Google Sites and enhancing brand image.
+  Rinnovato il sito web di una associazione non-profit locale, convertendo un vecchio sito WordPress in Google Sites e migliorando l'immagine del brand.
 links:
   demo: https://www.associazioneanastasis.it
 stats:
@@ -15,7 +15,7 @@ stats:
 technologies: [google-drive, iubenda, meta, youtube, google-business]
 testimonial:
   person: Anna Rita Piccioli
-  role: Founder
-  text: Our previous webmaster left us stranded; Raffaella revived our website with teamwork and dedication, delivering an efficient solution for our non-profit at an affordable rate.
+  role: Fondatrice
+  text: Il nostro precedente webmaster ci ha lasciato in difficoltà; Raffaella ha rivitalizzato il nostro sito con teamwork e dedizione, fornendo una soluzione efficiente per la nostra associazione non-profit a un costo accessibile.
 ---
-Revitalizing a local non-profit's digital presence involved transforming a defunct WordPress site into a streamlined Google Sites platform. This strategic migration, seamlessly integrating with Google's tools, resolved functionality issues and empowered volunteers with an intuitive interface. Central to the project was redefining the association's brand image through font and color choices, facilitating brand recognition. My role extended to providing comprehensive guidance for volunteers, including training on content updating and formulating a cohesive digital communication strategy. Integrating Google Drive and Google Maps optimized resource sharing and event visibility. The collaborative efforts revitalized the non-profit's digital presence, aligning its website with contemporary standards. Volunteers now autonomously manage the site, ensuring a sustained and impactful online presence within the local community.
+Revitalizzare la presenza digitale di una associazione non-profit locale ha comportato la trasformazione di un vecchio sito WordPress in una piattaforma ottimizzata su Google Sites. Questa migrazione strategica, integrata perfettamente con gli strumenti di Google, ha risolto problemi di funzionalità ed ha fornito ai volontari un'interfaccia intuitiva. Al centro del progetto c'è stata la ridefinizione dell'immagine del brand dell'associazione attraverso scelte di font e colori, facilitando il riconoscimento del marchio. Il mio ruolo ha incluso anche la fornitura di orientamento completo per i volontari, inclusa la formazione sull'aggiornamento dei contenuti e la formulazione di una strategia coesa di comunicazione digitale. L'integrazione di Google Drive e Google Maps ha ottimizzato la condivisione delle risorse e la visibilità degli eventi. Gli sforzi collaborativi hanno rivitalizzato la presenza digitale della non-profit, allineando il sito web agli standard contemporanei. Ora i volontari gestiscono autonomamente il sito, assicurando una presenza online sostenuta e di impatto all'interno della comunità locale.

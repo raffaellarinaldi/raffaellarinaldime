@@ -1,19 +1,31 @@
+{% set translations = {
+    'it': {
+        'title': 'Panoramica dei Servizi',
+        'intro': 'Ho più di 15 anni di esperienza nel fornire servizi digitali completi per una vasta gamma di clienti. Qui sotto puoi vedere una rapida panoramica delle mie competenze. Vuoi saperne di più sul mio lavoro? <a class="text-link" href="URL">Consulta il mio curriculum</a>.',
+        'slug': '/curriculum/'
+    },
+    'en': {
+        'title': 'Services Overview',
+        'intro': 'I have more than 15 years of experience providing comprehensive digital services for a broad spectrum of clientele. Below is a quick overview of my skill sets. Want to find out more about my work? <a class="text-link" href="URL">Check out my online resume</a>.',
+        'slug': '/en/resume/'
+    }
+} %}
 <section class="skills-section section py-5">
 	<div class="container">
-		<h3 class="section-title font-weight-bold text-center mb-3">Services Overview</h3>
-		<div class="section-intro mx-auto text-center mb-5 text-secondary">I have more than 15 years of experience providing comprehensive digital services for a broad spectrum of clientele. Below is a quick overview of my main skill sets. Want to find out more about my experience? <a class="text-link" href="{{ '/resume/' | url }}">Check out my online resume</a>.</div>
+		<h3 class="section-title font-weight-bold text-center mb-3">{{ translations[lang].title }}</h3>
+		<div class="section-intro mx-auto text-center mb-5 text-secondary">{{ translations[lang].intro | replace('URL', (translations[lang].slug | url )) | safe }}</div>
 		<div class="skills-blocks mx-auto pt-5">
 			<div class="row">
-				{% for skill in site.skills %}
+				{% for service in resume.sidebar.services %}
 					<div class="skills-block col-12 col-lg-4{{ '' if loop.last else ' mb-5 mb-3 mb-lg-0' }}">
 						<div class="skills-block-inner bg-white shadow-sm py-4 px-5 position-relative">
-							<h4 class="skills-cat text-center mb-3 mt-5">{{ skill.title }}</h4>
+							<h4 class="skills-cat text-center mb-3 mt-5">{{ service.title[lang] }}</h4>
 							<div class="skills-icon-holder position-absolute d-inline-block rounded-circle text-center">
-								<img class="skills-icon" src="/assets/img/skills/{{ skill.title | slugify | url }}-icon.svg">
+								<img class="skills-icon" src="/assets/img/skills/{{ service.icon }}.svg">
 							</div>
 							<ul class="skills-list list-unstyled text-secondary">
-								{% for subskill in skill.skills %}
-									<li class="mb-2"><i class="fas fa-check me-2 text-primary"></i>{{ subskill.name }}</li>
+								{% for skill in service.skills %}
+									<li class="mb-2"><i class="fas fa-check me-2 text-primary"></i>{{ skill.name[lang] }}</li>
 								{% endfor %}
 							</ul>
 						</div>

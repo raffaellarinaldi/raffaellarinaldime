@@ -1,14 +1,26 @@
+{% set translations = {
+    'it': {
+        'title': 'Lavoriamo insieme?',
+        'intro': 'Cerchi una specialista della presenza online per migliorare le tue azioni digitali? Per un primo contatto, inviami un\'e-mail a <a class="link-on-bg text-link" href="mailto:EMAIL">EMAIL</a> o usa il <a class="link-on-bg text-link" href="URL">modulo nella pagina di contatto</a>.',
+        'button': 'Parliamone',
+        'slug': '/contatti/'
+    },
+    'en': {
+        'title': 'Shall we work together?',
+        'intro': 'Looking for an experienced online presence specialist to enhance your digital operations? To start an initial chat, just drop me an e-mail at <a class="link-on-bg text-link" href="mailto:EMAIL">EMAIL</a> or use the <a class="link-on-bg text-link" href="URL">form on the contact page</a>.',
+        'button': 'Let\'s Talk',
+        'slug': '/en/contact/'
+    }
+} %}
 <section class="section{{ '-cta' if layout == 'home' else ''}} py-5 bg-primary text-white">
     <div class="container">
         <div class="text-center">
             <img class="profile-small d-inline-block mx-auto rounded-circle mb-2" src="{{ '/assets/img/profile.svg' | url }}" alt="{{ site.title }}">
         </div>
-        <h3 class="section-title font-weight-bold text-center mb-2">Interested in hiring me for your project?</h3>
-        <div class="section-intro mx-auto text-center mb-3">
-            Looking for an experienced online presence specialist to enhance your digital operations? To start an initial chat, just drop me an email at <a class="link-on-bg text-link" href="mailto:{{ site.email }}">{{ site.email }}</a> or use the <a class="link-on-bg text-link" href="{{ '/contact/' | url }}">form on the contact page</a>.
-        </div>
+        <h3 class="section-title font-weight-bold text-center mb-2">{{ translations[lang].title }}</h3>
+        <div class="section-intro mx-auto text-center mb-3">{{ translations[lang].intro | replace('EMAIL', site.email) | replace('URL', (translations[lang].slug | url )) | safe }}</div>
         <div class="text-center">
-            <a class="theme-btn-on-bg btn" href="{{ '/contact/' | url }}">Let's Talk</a>
+            <a class="theme-btn-on-bg btn" href="{{ translations[lang].slug | url }}">{{ translations[lang].button }}</a>
         </div>
     </div>
 </section>

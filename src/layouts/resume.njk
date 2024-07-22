@@ -1,3 +1,11 @@
+{% set translations = {
+	'it': {
+		'title': 'Percorso Professionale'
+	},
+	'en': {
+		'title': 'Career Summary'
+	}
+} %}
 {% extends '../layouts/base.njk' %}
 {% block content %}
 	{% include 'common/header.njk' %}
@@ -6,7 +14,7 @@
 			{% include 'resume/header.njk' %}
 			<div class="resume-body p-5">
 				<section class="resume-section summary-section mb-5">
-					<h2 class="resume-section-title text-uppercase font-weight-bold pb-3 mb-3">Career Summary</h2>
+					<h2 class="resume-section-title text-uppercase font-weight-bold pb-3 mb-3">{{ translations[lang].title }}</h2>
 					<div class="resume-section-content">
 						<p class="mb-0">{{ content | safe }}</p>
 					</div>

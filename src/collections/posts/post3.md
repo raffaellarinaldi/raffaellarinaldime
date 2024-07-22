@@ -1,4 +1,6 @@
 ---
+eleventyExcludeFromCollections: true
+permalink: false
 title: Best Practices for Code Review
 subtitle: The complete, step-by-step guide
 image: blog-post-thumb-3.jpg

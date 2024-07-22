@@ -1,11 +1,10 @@
 ---
 title: Agenzia Immobiliare VALCALEPIO
-slogan: Real estate sales and property management
+subtitle: Vendita di immobili e gestione delle proprietà
 type: Onepage
 categories: [Jamstack, Social]
 tags: [Eleventy, Bootstrap]
-description: |
-  Hybrid Eleventy-created website for a real estate agency, featuring custom web crawling for real-time listings.
+description: Sito web ibrido creato con Eleventy per un'agenzia immobiliare, con web crawling personalizzato per annunci in tempo reale.
 links:
   demo: https://www.agenziavalcalepio.bg.it
   github: https://github.com/raffaellarinaldi/agimmobiliarevalcalepio
@@ -16,7 +15,7 @@ stats:
 technologies: [11ty, nodejs, npm, gulp, bootstrap, nunjucks, github, netlify, html, css, sass, javascript, cloud9, meta, google-business, iubenda, linkedin, youtube]
 testimonial:
   person: Sergio Manenti
-  role: Owner
-  text: With Raffaella's exceptional expertise, our agency's homepage underwent a remarkable transformation, consistently captivating clients and standing out among competitors.
+  role: Titolare
+  text: Con l'eccezionale competenza di Raffaella, la homepage della nostra agenzia ha subito una straordinaria trasformazione, catturando costantemente l'attenzione dei clienti e distinguendosi tra i concorrenti.
 ---
-This Eleventy-powered hybrid single-page presentation site is tailored for a real estate agency. It features a highly functional web crawler created with Eleventy Fetch/Serverless and Netlify Functions, ensuring real-time listing updates from another domain without site redeployment. The frontend boasts a Bootstrap foundation, enhanced with a third-party theme meticulously modified and converted to 11ty, complemented by the sophistication of SASS and Gulp. An active GitHub Action orchestrates an automatic regeneration every 24 hours, showcasing the site's commitment to seamless and dynamic user experiences. Beyond its technical finesse, the site is meticulously SEO-optimized. The comprehensive service extends to defining a bespoke brand kit, implementing Google My Business, and providing strategic social media consultancy for platforms such as Facebook, Instagram, YouTube, LinkedIn, and Whatsapp Business.
+Questo sito di presentazione ibrido a pagina singola, alimentato da Eleventy, è su misura per un'agenzia immobiliare. Presenta un web crawler altamente funzionale creato con Eleventy Fetch/Serverless e Netlify Functions, garantendo aggiornamenti in tempo reale degli annunci da un altro dominio senza dover ridistribuire il sito. Il frontend è basato su Bootstrap, migliorato con un tema di terze parti meticolosamente modificato e convertito in 11ty, completato dalla raffinatezza di SASS e Gulp. Una GitHub Action attiva orchestralmente una rigenerazione automatica ogni 24 ore, dimostrando l'impegno del sito per esperienze utente fluide e dinamiche. Oltre alla raffinatezza tecnica, il sito è meticolosamente ottimizzato per la SEO. Il servizio completo si estende alla definizione di un kit di marca su misura, all'implementazione di Google My Business e alla consulenza strategica sui social media per piattaforme come Facebook, Instagram, YouTube, LinkedIn e Whatsapp Business.

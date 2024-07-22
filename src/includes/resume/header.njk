@@ -8,11 +8,11 @@
 				<div class="primary-info col-auto">
 					<h1 class="name mt-0 mb-1 text-white text-uppercase">
 						<span class="d-none d-lg-block">{{ site.title }}</span>
-						<span class="d-block d-lg-none">R.Rinaldi</span>
+						<span class="d-block d-lg-none">{{ site.short.title }}</span>
 					</h1>
 					<div class="title mb-3">
-						<span class="d-none d-lg-block">{{ site.slogan }}</span>
-						<span class="d-block d-lg-none">O.P.S.</span>
+						<span class="d-none d-lg-block">{{ site.subtitle }}</span>
+						<span class="d-block d-lg-none">{{ site.short.subtitle }}</span>
 					</div>
 					<ul class="list-unstyled">
 						<li class="mb-2">
@@ -35,13 +35,13 @@
 							{% endif %}
 						{% endfor %}
 						<li>
-							<a class="text-link" href="https://raffaellarinaldi.com" target="_blank" rel="nofollow noreferrer noopener">
-								<span class="fa-container text-center me-2"><i class="fas fa-globe"></i></span>raffaellarinaldi.com
+							<a class="text-link" href="{{ site.url }}" target="_blank" rel="nofollow noreferrer noopener">
+								<span class="fa-container text-center me-2"><i class="fas fa-globe"></i></span>{{ site.url | replace("https://", "") | replace("/", "") }}
 							</a>
 						</li>
 					</ul>
 				</div>
 			</div>
 		</div>
-    </div>
+	</div>
 </header>

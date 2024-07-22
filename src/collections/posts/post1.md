@@ -1,4 +1,6 @@
 ---
+eleventyExcludeFromCollections: true
+permalink: false
 title: How to Create an Angular Library
 subtitle: The complete, step-by-step guide
 image: blog-post-thumb-1.jpg

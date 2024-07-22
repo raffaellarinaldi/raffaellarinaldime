@@ -1,11 +1,10 @@
 ---
 title: Sailor Moon World
-slogan: Your Italian resource for Sailor Moon
+subtitle: La tua risorsa italiana su Sailor Moon
 type: Website
 categories: [Lampstack, Social, Automation, Writing]
 tags: [WordPress, Kirby]
-description: |
-  A titanic project dedicated to a Japanese series, spanning from website to social spaces for a shared creative experience.
+description: Un progetto titanico dedicato a una serie giapponese, che si estende dal sito web agli spazi sociali per un'esperienza creativa condivisa.
 links:
   demo: https://www.facebook.com/SMWorld.it/
 stats:
@@ -14,4 +13,4 @@ stats:
   subscribers: 2,000
 technologies: [wordpress, elementor, woocommerce, meta, youtube, blogger, pinterest, emailoctopus, cloudflare, php, mysql, zoho, kirby]
 ---
-I personally co-founded this project in 2009, achieving exponential growth over the years in terms of monthly website visits, Facebook likes, and forum subscriptions. Additionally, we established collaborations with Italian, Japanese, and American licensing companies to promote merchandise through affiliate marketing. This journey provided extensive learning in digital marketing and community management. Presently, the project boasts nearly 150K Facebook likes and is undergoing a revamp using WordPress, Elementor, Kirby, and more.
+Personalmente ho co-fondato questo progetto nel 2009, ottenendo una crescita esponenziale nel corso degli anni in termini di visite mensili al sito web, mi piace su Facebook e iscrizioni al forum. Inoltre, abbiamo instaurato collaborazioni con aziende di licensing italiane, giapponesi e americane per promuovere merchandise attraverso il marketing di affiliazione. Questo percorso ha fornito un ampio apprendimento nel campo del marketing digitale e della gestione della community. Attualmente, il progetto vanta quasi 150.000 mi piace su Facebook ed è in fase di rinnovamento utilizzando WordPress, Elementor, Kirby e altre piattaforme.

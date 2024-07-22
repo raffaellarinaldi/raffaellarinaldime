@@ -1,3 +1,13 @@
+{% set translations = {
+    'it': {
+        'link': 'Vedi sito pubblico',
+        'github': 'Vedi su GitHub'
+    },
+    'en': {
+        'link': 'View Live Site',
+        'github': 'View on GitHub'
+    }
+} %}
 <div class="section-row">
     <div class="mb-5">
         <img class="img-fluid" src="/assets/img/projects/{{ title | slugify | url }}-mockup.jpg" alt="{{ title }}">
@@ -5,9 +15,9 @@
     <!--<h3 class="section-title">{{ title }}</h3>-->
     {{ content | safe }}
     <div class="mb-5">
-        <a class="btn btn-primary" href="{{ links.demo if links.demo else url }}" target="_blank" rel="nofollow noreferrer noopener"><i class="fas fa-external-link-alt me-2"></i> View Live Site</a>
+        <a class="btn btn-primary" href="{{ links.demo if links.demo else url }}" target="_blank" rel="nofollow noreferrer noopener"><i class="fas fa-external-link-alt me-2"></i> {{ translations[lang].link }}</a>
         {% if links.github %}
-            <a class="btn btn-secondary" href="{{ links.github }}" target="_blank" rel="nofollow noreferrer noopener"><i class="fab fa-github-alt me-2"></i> View on GitHub</a>
+            <a class="btn btn-secondary" href="{{ links.github }}" target="_blank" rel="nofollow noreferrer noopener"><i class="fab fa-github-alt me-2"></i> {{ translations[lang].github }}</a>
         {% endif %}
     </div>
     <!--content-->

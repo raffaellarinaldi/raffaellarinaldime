@@ -1,3 +1,43 @@
+{% set translations = {
+	'it': {
+		'speech': {
+			'main': 'Se sei interessatə a discutere del tuo progetto e ottenere il mio aiuto, utilizza il modulo sottostante per contattarmi. Vuoi capire come lavoro e cosa posso offrirti? Consulta il mio <a class="text-link" href="URL1">portfolio</a> e <a class="text-link" href="URL2">curriculum</a>.',
+			'channels': 'Puoi trovarmi anche sui seguenti canali',
+			'slug': ['/portfolio/', '/curriculum/']
+		},
+		'form': {
+			'title': 'Sentiamoci',
+			'fields': {
+				'name': 'Nome',
+				'message': 'Messaggio',
+				'gdpr': {
+					'name': 'Ho letto e accetto la <a class="text-link" href="URL" target="_blank" rel="nofollow noreferrer noopener">Privacy Policy</a>',
+					'slug': 'https://www.freeprivacypolicy.com/live/f53e81e4-d50a-4251-9161-98f3ffa0f515'
+				},
+				'button': 'Invia'
+			}
+		}
+	},
+	'en': {
+		'speech': {
+			'main': 'If you are interested in discussing your project and getting my help, please use the form below to contact me. Want to know how I work and what I can offer? Check out my <a class="text-link" href="URL1">portfolio</a> and <a class="text-link" href="URL2">resume</a>.',
+			'channels': 'You can also find me on the following channels',
+			'slug': ['/en/portfolio/', '/en/resume/']
+		},
+		'form': {
+			'title': 'Get In Touch',
+			'fields': {
+				'name': 'Name',
+				'message': 'Message',
+				'gdpr': {
+					'name': 'I have read and agree to the <a class="text-link" href="URL" target="_blank" rel="nofollow noreferrer noopener">Privacy Policy</a>',
+					'slug': 'https://www.freeprivacypolicy.com/live/f53e81e4-d50a-4251-9161-98f3ffa0f515'
+				},
+				'button': 'Send'
+			}
+		}
+	}
+} %}
 {% extends '../layouts/base.njk' %}
 {% block content %}
 	{% include 'common/header.njk' %}
@@ -7,8 +47,8 @@
 				<div class="contact-intro col-lg-8 mx-lg-auto mb-5 text-center">
 					<img class="profile-small d-inline-block mx-auto rounded-circle mb-3" src="{{ '/assets/img/profile.svg' | url }}" alt="{{ site.title }}">
 					<div class="speech-bubble bg-white p-4 p-lg-5 shadow-sm">
-						<p class="text-start mb-3">If you are interested in discussing your project and getting my help, please use the form below to contact me. Want to know how I work and what I can offer? Check out my <a class="text-link" href="{{ '/projects/' | url }}">project case studies</a> and <a class="text-link" href="{{ '/resume/' | url }}">resume</a>.</p>
-						<p class="h6 font-weight-bold text-center mb-3">You can also find me on the following channels</p>
+						<p class="text-start mb-3">{{ translations[lang].speech.main | replace('URL1', translations[lang].speech.slug[0] | url) | replace('URL2', translations[lang].speech.slug[1] | url) | safe }}</p>
+						<p class="h6 font-weight-bold text-center mb-3">{{ translations[lang].speech.channels }}</p>
 						<ul class="social-list-color list-inline mb-0">
 							{% for network in site.network %}
 								<li class="list-inline-item{{ '' if loop.last else ' mb-3' }}">
@@ -20,7 +60,7 @@
 				</div>
 				<div class="contact-form-container shadow-sm col-lg-8 mx-lg-auto p-5 bg-white">
 					<form id="contact-form" class="contact-forms" name="contact" action="/" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-						<h3 class="text-center mb-4">Get In Touch</h3>
+						<h3 class="text-center mb-4">{{ translations[lang].form.title }}</h3>
 						{% if site.environment == 'production' %}
 							<div hidden aria-hidden="true">
 								<label>
@@ -31,16 +71,16 @@
 						{% endif %}
 						<div class="row g-3">
 							<div class="col-12 col-md-6">
-								<label class="sr-only" for="name">Name</label>
-								<input type="text" class="form-control" id="name" name="name" placeholder="Name" minlength="2" required="" aria-required="true">
+								<label class="sr-only" for="name">{{ translations[lang].form.fields.name }}</label>
+								<input type="text" class="form-control" id="name" name="name" placeholder="{{ translations[lang].form.fields.name }}" minlength="2" required="" aria-required="true">
 							</div>
 							<div class="col-12 col-md-6">
-								<label class="sr-only" for="email">Email</label>
-								<input type="email" class="form-control" id="email" name="email" placeholder="Email" required="" aria-required="true">
+								<label class="sr-only" for="email">E-mail</label>
+								<input type="email" class="form-control" id="email" name="email" placeholder="E-mail" required="" aria-required="true">
 							</div>
 							<div class="col-12">
-								<label class="sr-only" for="message">Your message</label>
-								<textarea class="form-control" id="message" name="message" placeholder="Enter your message" rows="10" required="" aria-required="true"></textarea>
+								<label class="sr-only" for="message">{{ translations[lang].form.fields.message }}</label>
+								<textarea class="form-control" id="message" name="message" placeholder="{{ translations[lang].form.fields.message }}" rows="10" required="" aria-required="true"></textarea>
 							</div>
 							<div class="col-12">
 								<!--<div class="form-check">-->
@@ -49,12 +89,12 @@
 								<!--</div>-->
 								<div class="form-check">
 									<input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" required="" aria-required="true">
-									<label class="form-check-label" for="flexCheckChecked">I have read and agree to the <a class="text-link" href="https://www.freeprivacypolicy.com/live/f53e81e4-d50a-4251-9161-98f3ffa0f515" target="_blank" rel="nofollow noreferrer noopener">Privacy Policy</a></label>
+									<label class="form-check-label" for="flexCheckChecked">{{ translations[lang].form.fields.gdpr.name | replace('URL', translations[lang].form.fields.gdpr.slug) | safe }}</label>
 								</div>
 							</div>
 							<div class="col-12" id="contact-form-result"></div>
 							<div class="col-12">
-								<button type="submit" class="btn w-100 btn-primary py-2">Send It</button>
+								<button type="submit" class="btn w-100 btn-primary py-2">{{ translations[lang].form.fields.button }}</button>
 							</div>
 						</div>
 					</form>

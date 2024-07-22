@@ -1,5 +1,5 @@
 {
-  "name": "raffaella.dev",
+  "name": "raffaellarinaldi.dev",
   "version": "0.1.0",
   "description": "",
   "main": "index.js",
@@ -19,12 +19,12 @@
   "keywords": [],
   "repository": {
     "type": "git",
-    "url": "git+https://raffaellarinaldi@github.com/raffaellarinaldi/raffaelladev.git"
+    "url": "git+https://raffaellarinaldi@github.com/raffaellarinaldi/raffaellarinaldi.git"
   },
   "bugs": {
-    "url": "https://github.com/raffaellarinaldi/raffaelladev/issues"
+    "url": "https://github.com/raffaellarinaldi/raffaellarinaldi/issues"
   },
-  "homepage": "https://github.com/raffaellarinaldi/raffaelladev#readme",
+  "homepage": "https://github.com/raffaellarinaldi/raffaellarinaldi#readme",
   "dependencies": {
     "11tybase": "file:src/common/base"
   }

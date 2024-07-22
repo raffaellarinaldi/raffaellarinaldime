@@ -1,12 +1,11 @@
 ---
 featured: true
 title: DORO Italy
-slogan: Official Italian website of Doro Pesch
+subtitle: Sito ufficiale italiano di Doro Pesch
 type: Website
 categories: [Jamstack, Social, Writing]
 tags: [Eleventy, Bootstrap]
-description: |
-  Eleventy-powered website that serves as a promotional hub for a music group, blending API-driven prowess with handwritten content.
+description: Sito web alimentato da Eleventy che funge da hub promozionale per un gruppo musicale, combinando la potenza delle API con contenuti scritti a mano.
 links:
   demo: https://www.doropesch.it
   github:
@@ -16,4 +15,4 @@ stats:
   subscribers:
 technologies: [nodejs, npm, 11ty, gulp, bootstrap, netlify, github, meta, html, css, sass, javascript, cloud9, nunjucks, linktree, youtube, wikipedia, spotify, discogs, songkick, genius, markdown, iubenda]
 ---
-A meticulously crafted Eleventy hybrid website serves as a sophisticated promotional hub for a German music group in Italy. The homepage dynamically showcases concert dates from Songkick, Spotify albums, and YouTube videos. The site also features a refined news section with handwritten Markdown content, adding a human touch to the API-driven technological prowess. Foundationally, third-party themes and libraries are adapted to Eleventy via SASS and Gulp. Hosted on Netlify, the project integrates with Netlify Forms and Functions, regenerating daily through a GitHub Action. Prioritizing SEO and incorporating social media marketing and tailored content curation, the site stands as a testament to technology and artistic expression, resonating with a diverse audience. Moreover, seamless integration with Zoho optimizes email and newsletter management, completing the comprehensive approach.
+Un sito web meticolosamente sviluppato con Eleventy funge da sofisticato hub promozionale per un gruppo musicale tedesco in Italia. La homepage mostra dinamicamente le date dei concerti prese da Songkick, gli album su Spotify e i video su YouTube. Il sito include anche una raffinata sezione notizie con contenuti scritti in Markdown, aggiungendo un tocco umano alla potenza tecnologica basata su API. Fondamentalmente, temi e librerie di terze parti sono adattati a Eleventy tramite SASS e Gulp. Ospitato su Netlify, il progetto si integra con Netlify Forms e Functions, rigenerandosi quotidianamente tramite un'azione su GitHub. Ponendo l'accento sull'ottimizzazione SEO e integrando marketing sui social media e cura dei contenuti su misura, il sito si presenta come una testimonianza di tecnologia ed espressione artistica, risuonando con un pubblico diversificato. Inoltre, l'integrazione senza soluzione di continuità con Zoho ottimizza la gestione delle email e delle newsletter, completando un approccio completo.

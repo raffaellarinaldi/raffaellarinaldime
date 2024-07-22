@@ -1,12 +1,11 @@
 ---
 featured: true
 title: Sabrina Rinaldi
-slogan: Wildlife Artist
+subtitle: Wildlife Artist
 type: Portfolio
 categories: [Jamstack]
 tags: [Eleventy, UIKit]
-description: |
-  Multidomain, multilingual experimental static site crafted from scratch with custom tools for a unique digital showcase.
+description: Sito statico sperimentale multidominio e multilingua creato da zero con strumenti personalizzati per una vetrina digitale unica.
 links:
   demo: https://www.sabrinarinaldi.com
   github: https://github.com/raffaellarinaldi/sabrinarinaldi
@@ -17,7 +16,7 @@ stats:
 technologies: [11ty, nodejs, npm, gulp, uikit, liquid, github, html, css, sass, javascript, cloud9]
 testimonial:
   person: Sabrina Rinaldi
-  role: Wildlife Artist
-  text: Raffaella, my digital expert for nearly two decades, navigates the digital landscape seamlessly, showcasing unmatched expertise. She's definitely the best in the game!
+  role: Artista
+  text: Raffaella, la mia esperta digitale da quasi due decenni, naviga nel panorama digitale senza sforzo, mostrando una competenza ineguagliabile. È sicuramente la migliore nel suo campo!
 ---
-An entirely static artistic portfolio website, initially crafted with Jekyll and now powered by Eleventy. This project, which spans multiple languages and domains, is managed within a unified repository. Experimental workflows, meticulously researched and seamlessly integrated, contributed to a creatively challenging and original development process. The frontend, custom-tailored to the client's specifications, is constructed from the ground up using Liquid, UIKit, Gulp, and SASS. The deployment workflow effortlessly includes automatic FTP upload to the hosting server. Additionally, the site is SEO-optimized, boasting a dual sitemap catering to both pages and images.
+Un portfolio artistico interamente statico, inizialmente creato con Jekyll e ora alimentato da Eleventy. Questo progetto, che abbraccia molteplici lingue e domini, è gestito all'interno di un repository unificato. Workflow sperimentali, accuratamente studiati e integrati in modo impeccabile, hanno contribuito a un processo di sviluppo creativamente stimolante e originale. Il frontend, su misura secondo le specifiche del cliente, è stato costruito da zero utilizzando Liquid, UIKit, Gulp e SASS. Il workflow di distribuzione include senza sforzo il caricamento automatico via FTP sul server di hosting. Inoltre, il sito è ottimizzato per il SEO, vantando una mappa del sito duplice che include sia le pagine che le immagini.

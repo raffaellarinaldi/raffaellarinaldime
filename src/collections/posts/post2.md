@@ -1,4 +1,6 @@
 ---
+eleventyExcludeFromCollections: true
+permalink: false
 title: React, Bootstrap, and Angular- The Basics
 subtitle: The complete, step-by-step guide
 image: blog-post-thumb-2.jpg

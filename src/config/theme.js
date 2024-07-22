@@ -1,6 +1,6 @@
 module.exports = (eleventyConfig) => {
   // Shortcodes
-    eleventyConfig.addPairedNunjucksShortcode('row', (content, title) => {
+  eleventyConfig.addPairedNunjucksShortcode('row', (content, title) => {
     return `
     <div class="section-row">
       <h3 class="section-title">${title}</h3>
