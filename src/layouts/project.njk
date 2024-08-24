@@ -1,38 +1,21 @@
 {% extends '../layouts/base.njk' %}
 {% block content %}
 	{% include 'common/header.njk' %}
-	{% if true %}
-		<div class="project-wrapper container py-5">
-			<div class="row">
-				<section class="col-12 col-lg-8">{{ project | dump }}
-					{% include 'project/main.njk' %}
-					<!--content-->
-				</section>
-				<aside class="project-sidebar col-12 col-lg-4 ps-lg-5">
-					{% include 'project/sidebar.njk' %}
-				</aside>
-			</div>
-		</div>
-	{% else %}
-		<section class="project-wrapper single-col-max-width py-5 px-4 mx-auto">
-			{% include 'project/main.njk' %}
-			<!--content-->
-			<div class="section-row">
-				<!--content-->
-				{% include 'project/testimonial.njk' %}
-			</div>
-			<div class="section-row">
-				<h3 class="section-title">Technologies Used</h3>
-				<!--<p class="mb-4"></p>-->
-				<div class="webdev-icons row mb-5 justify-content-center">
-					{% for technology in technologies | sort %}
-						<div class="webdev-icon col-3 col-md-2 me-0 mb-4 px-4"><img class="img-fluid" src="{{ '/assets/img/technologies/' | url }}{{ technology | lower }}.svg"></div>
-					{% endfor %}
+	{% for project in collections.projects %}
+		{% if project.fileSlug == page.fileSlug and project.lang == lang %}
+			<div class="project-wrapper container py-5">
+				<div class="row">
+					<section class="col-12 col-lg-8">
+						{% include 'project/main.njk' %}
+						<!--content-->
+					</section>
+					<aside class="project-sidebar col-12 col-lg-4 ps-lg-5">
+						{% include 'project/sidebar.njk' %}
+					</aside>
 				</div>
 			</div>
-			<!--content-->
-		</section>
-	{% endif %}
+		{% endif %}
+	{% endfor %}		
 	{% include 'project/related.njk' %}
 	{% include 'common/cta.njk' %}
 	{% include 'common/footer.njk' %}

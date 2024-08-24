@@ -1,4 +1,5 @@
 ---
+title: Sabrina Rinaldi
 description: Multidomain, multilingual experimental static site crafted from scratch with custom tools for a unique digital showcase.
 testimonial:
   role: Artist

@@ -1,4 +1,5 @@
 ---
+title: Sailor Moon World
 subtitle: Your Italian resource for Sailor Moon
 description: A titanic project dedicated to a Japanese series, spanning from website to social spaces for a shared creative experience.
 ---

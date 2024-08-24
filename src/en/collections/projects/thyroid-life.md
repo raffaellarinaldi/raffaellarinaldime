@@ -1,4 +1,5 @@
 ---
+title: Thyroid Life
 subtitle: My Hyperthyroidism Journey
 description: A personal blog that narrates my hyperthyroidism journey, encapsulating a unique personal discovery experience.
 ---

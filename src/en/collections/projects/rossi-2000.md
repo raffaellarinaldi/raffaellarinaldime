@@ -1,4 +1,5 @@
 ---
+title: ROSSI 2000
 subtitle: Mold Design for Technical Rubber in Sarnico (BG)
 description: Developed a presentation website using Bootstrap and implemented local SEO strategies for a B2B mold workshop with Google tools.
 testimonial:

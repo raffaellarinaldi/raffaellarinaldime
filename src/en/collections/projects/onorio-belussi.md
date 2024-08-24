@@ -1,4 +1,5 @@
 ---
+title: Onorio Belussi
 subtitle: The Earth operates like us
 description: Migrated site from WordPress to Bearblog, optimizing speed, adding social profiles, and implementing content curation for a comprehensive digital presence.
 testimonial:

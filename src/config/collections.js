@@ -42,28 +42,32 @@ module.exports = function(eleventyConfig) {
       const baseContent = fs.readFileSync(file.inputPath, 'utf8');
       const { data: baseFrontMatter, content: baseContentWithoutFrontmatter } = grayMatter(baseContent);
 
+      // Extract fileSlug from file inputPath
+      const fileSlug = path.basename(file.inputPath, path.extname(file.inputPath));
+
       // Main data for Italian version
       const mainData = {
         data: {
           ...baseFrontMatter
         },
-        url: `/portfolio/${file.fileSlug}/`,
+        url: `/portfolio/${fileSlug}/`,
         lang: 'it',
-        content: baseContentWithoutFrontmatter
+        content: baseContentWithoutFrontmatter,
+        fileSlug: fileSlug // Add fileSlug here
       };
 
       // Initialize empty object for translations
-      projects[file.fileSlug] = {};
+      projects[fileSlug] = {};
 
       // Add data for Italian version
-      projects[file.fileSlug]['it'] = mainData;
+      projects[fileSlug]['it'] = mainData;
 
       // Get data for other supported languages
       supportedLanguages.forEach(lang => {
         if (lang.code !== 'it') {
           const { frontmatter: langFrontMatter, content: langContent } = getLangData(lang, file.inputPath);
 
-          // Frontmatter merging: use deepMerge for merge the objects
+          // Frontmatter merging: use deepMerge to merge the objects
           const mergedFrontmatter = deepMerge(baseFrontMatter, langFrontMatter);
 
           // Cleanup categories for specific language
@@ -78,13 +82,14 @@ module.exports = function(eleventyConfig) {
             data: {
               ...mergedFrontmatter
             },
-            url: `/${lang.code}/portfolio/${file.fileSlug}/`,
+            url: `/${lang.code}/portfolio/${fileSlug}/`,
             lang: lang.code,
-            content: langContent
+            content: langContent,
+            fileSlug: fileSlug // Add fileSlug here
           };
 
           // Add translation data to corresponding main project
-          projects[file.fileSlug][lang.code] = langProjectData;
+          projects[fileSlug][lang.code] = langProjectData;
         }
       });
     });
@@ -173,13 +178,12 @@ module.exports = function(eleventyConfig) {
   );
 
   // Custom filters
-eleventyConfig.addFilter('featured', function(collection, featured = true) {
-  const currentLang = this.ctx.page?.lang;
-  return collection.filter(item => 
-    (!featured || item.data.featured) && (!currentLang || item.lang === currentLang)
-  );
-});
-
+  eleventyConfig.addFilter('featured', function(collection, featured = true) {
+    const currentLang = this.ctx.page?.lang;
+    return collection.filter(item => 
+      (!featured || item.data.featured) && (!currentLang || item.lang === currentLang)
+    );
+  });
 
   eleventyConfig.addFilter('getAllCats', (projects, filterCats) => {
     const allCats = [];
@@ -191,43 +195,67 @@ eleventyConfig.addFilter('featured', function(collection, featured = true) {
     return filterCats.includes('all') ? uniqueAllCats : filterCats.filter(cat => uniqueAllCats.includes(cat));
   });
 
-  // eleventyConfig.addNunjucksFilter('excludeFromCollection', (collection = [], pageUrl = this.ctx.page.url) =>
-  //   collection.filter(post => post.url !== pageUrl)
-  // );
+  // Function to get tags
+  function getTags(post, collection) {
+    if (post.data.tags) {
+      return post.data.tags;
+    }
 
-  // eleventyConfig.addFilter('filterByTags', (collection = [], ...requiredTags) =>
-  //   collection.filter(post => requiredTags.flat().every(tag => post.data.tags.includes(tag)))
-  // );
+    // Trova la versione principale dello stesso post
+    const mainPost = collection.find(p => p.fileSlug === post.fileSlug && p.lang === 'it');
+    return mainPost ? mainPost.data.tags || [] : [];
+  }
 
-  eleventyConfig.addNunjucksFilter('related', function(collection = []) {
-  const { tags: requiredTags = [], page = {} } = this.ctx || {};
-  return collection.filter(post =>
-    post.url !== page.url &&
-    post.lang === page.lang &&
-    requiredTags.some(tag => post.data.tags.includes(tag))
-  );
+  // Nunjucks filter for related posts
+  eleventyConfig.addNunjucksFilter('related', function(collection = [], page) {
+    // Verifica che la pagina sia definita e contiene un fileSlug
+    if (!page || !page.fileSlug) {
+        return [];
+    }
+
+    // Ottieni la collezione passata e trova l'elemento corrispondente alla pagina
+    const collectionItems = collection;
+    const currentItem = collectionItems.find(item => item.fileSlug === page.fileSlug);
+
+    if (!currentItem) {
+        console.log('Current item not found in collection');
+        return [];
+    }
+
+    // Recupera i tag dall'elemento corrente
+    const requiredTags = currentItem.data.tags || [];
+    const currentLang = page.lang || 'it';
+
+    // Normalizza i tag per il confronto
+    const normalizedRequiredTags = requiredTags.map(tag => tag.trim().toLowerCase());
+
+    return collectionItems.filter(item => {
+        // Verifica che l'elemento abbia i tag
+        if (!item || !item.data || !item.data.tags) {
+            return false;
+        }
+
+        // Normalizza i tag degli elementi
+        const itemTags = (item.data.tags || []).map(tag => tag.trim().toLowerCase());
+
+        // Verifica la corrispondenza dei tag
+        const isTagMatch = normalizedRequiredTags.some(tag => itemTags.includes(tag));
+
+        // Verifica la corrispondenza della lingua
+        const isLangMatch = item.lang && item.lang.trim().toLowerCase() === currentLang.trim().toLowerCase();
+
+        // Debugging: Mostra le informazioni di confronto per ogni elemento
+        console.log(`Checking item: ${item.url}`);
+        console.log(`Tags: ${itemTags.join(', ')}`);
+        console.log(`Is Tag Match: ${isTagMatch}`);
+        console.log(`Is Language Match: ${isLangMatch}`);
+
+        // Restituisce true solo se entrambe le condizioni sono soddisfatte e l'elemento non è la pagina corrente
+        return item.url !== page.url && isTagMatch && isLangMatch;
+    });
 });
 
 
 
-
-
-
-
-  // Eleventy debug configuration
-  eleventyConfig.setUseGitIgnore(false); // Ignore the .gitignore file
-  eleventyConfig.setWatchJavaScriptDependencies(false); // Don't consider JavaScript dependencies
-  eleventyConfig.setTemplateFormats(['html', 'md', 'njk']); // Template formats to consider
-
-  // Only debug in development mode
-  if (process.env.NODE_ENV === 'development') {
-    eleventyConfig.setQuietMode(false); // Disable quiet mode
-    eleventyConfig.setBrowserSyncConfig({
-      logLevel: 'debug',
-      open: true
-    });
-  }
-
   // More code here
-
 };

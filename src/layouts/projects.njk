@@ -9,6 +9,7 @@
 {% extends '../layouts/base.njk' %}
 {% block content %}
   {% include 'common/header.njk' %}
+  {{ collections.all | dump}}
   <section class="section pt-5">
     <div class="container">
       <div class="text-center">

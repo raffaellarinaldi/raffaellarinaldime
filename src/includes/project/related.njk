@@ -8,7 +8,7 @@
         'client': 'Client'
     }
 } %}
-{% set relatedProjects = collections.projects |  related %}
+{% set relatedProjects = collections.projects | related(page) %}
 {% if relatedProjects.length %}
 	<section class="section pt-5 related-projects-section bg-white">
 		<div class="container">

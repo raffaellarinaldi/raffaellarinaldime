@@ -1,4 +1,5 @@
 ---
+title: Marco Albiero
 description: WordPress-based site for a professional illustrator revamped using Adobe Portfolio, enhancing speed, functionality, and SEO optimization.
 testimonial:
   role: Artist

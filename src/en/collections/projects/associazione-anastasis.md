@@ -1,4 +1,5 @@
 ---
+title: Associazione ANASTASIS
 subtitle: Global support for cancer patients in Adro (BS)
 description: Revamped a local non-profit's website, converting an old WordPress site to Google Sites and enhancing brand image.
 testimonial:

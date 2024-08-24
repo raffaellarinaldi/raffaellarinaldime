@@ -1,4 +1,5 @@
 ---
+title: DORO Italy
 subtitle: Official Italian website of Doro Pesch
 description: Eleventy-powered website that serves as a promotional hub for a music group, blending API-driven prowess with handwritten content.
 ---

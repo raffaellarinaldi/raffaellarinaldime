@@ -10,14 +10,14 @@
 } %}
 <div class="section-row">
     <div class="mb-5">
-        <img class="img-fluid" src="/assets/img/projects/{{ title | slugify | url }}-mockup.jpg" alt="{{ title }}">
+        <img class="img-fluid" src="/assets/img/projects/{{ project.data.title | slugify | url }}-mockup.jpg" alt="{{ project.data.title }}">
     </div>
     <!--<h3 class="section-title">{{ title }}</h3>-->
     {{ content | safe }}
     <div class="mb-5">
-        <a class="btn btn-primary" href="{{ links.demo if links.demo else url }}" target="_blank" rel="nofollow noreferrer noopener"><i class="fas fa-external-link-alt me-2"></i> {{ translations[lang].link }}</a>
-        {% if links.github %}
-            <a class="btn btn-secondary" href="{{ links.github }}" target="_blank" rel="nofollow noreferrer noopener"><i class="fab fa-github-alt me-2"></i> {{ translations[lang].github }}</a>
+        <a class="btn btn-primary" href="{{ project.data.links.demo if project.data.links.demo else url }}" target="_blank" rel="nofollow noreferrer noopener"><i class="fas fa-external-link-alt me-2"></i> {{ translations[lang].link }}</a>
+        {% if project.data.links.github %}
+            <a class="btn btn-secondary" href="{{ project.data.links.github }}" target="_blank" rel="nofollow noreferrer noopener"><i class="fab fa-github-alt me-2"></i> {{ translations[lang].github }}</a>
         {% endif %}
     </div>
     <!--content-->

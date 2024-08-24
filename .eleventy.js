@@ -44,6 +44,20 @@ module.exports = (eleventyConfig) => {
   eleventyConfig.addPlugin(EleventyI18nPlugin, {
     defaultLanguage: 'it',
   })
+  
+  // Eleventy debug configuration
+  eleventyConfig.setUseGitIgnore(false);
+  eleventyConfig.setWatchJavaScriptDependencies(false);
+  eleventyConfig.setTemplateFormats(['html', 'md', 'njk']);
+
+  // Only debug in development mode
+  if (process.env.NODE_ENV === 'development') {
+    eleventyConfig.setQuietMode(false);
+    eleventyConfig.setBrowserSyncConfig({
+      logLevel: 'debug',
+      open: true
+    });
+  }
 
 
   return {

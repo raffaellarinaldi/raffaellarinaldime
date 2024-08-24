@@ -42,23 +42,23 @@
 	<div class="sidebar-row mb-5">
 		<h3 class="sidebar-title mb-4">{{ translations[lang].info.title }}</h3>
 		<ul class="list-unstyled ps-2">
-			<li class="mb-4"><i class="fas fa-building me-3 text-primary" data-fa-transform="grow-6 down-2"></i><strong>{{ translations[lang].info.items.client }}:</strong> {{ title }}</li>
-			<li class="mb-4"><i class="fas fa-external-link-alt me-3 text-primary" data-fa-transform="grow-6 down-2"></i><strong>{{ translations[lang].info.items.link }}:</strong> <a href="{{ links.demo }}">{{ links.demo | replace('https://www.', '') }}</a></li>
-			<li><i class="fas fa-wrench me-3 text-primary" data-fa-transform="grow-6 down-2"></i><strong>{{ translations[lang].info.items.type }}:</strong> {{ type }}</li>
+			<li class="mb-4"><i class="fas fa-building me-3 text-primary" data-fa-transform="grow-6 down-2"></i><strong>{{ translations[lang].info.items.client }}:</strong> {{ project.data.title }}</li>
+			<li class="mb-4"><i class="fas fa-external-link-alt me-3 text-primary" data-fa-transform="grow-6 down-2"></i><strong>{{ translations[lang].info.items.link }}:</strong> <a href="{{ project.data.links.demo }}">{{ project.data.links.demo | replace('https://www.', '') }}</a></li>
+			<li><i class="fas fa-wrench me-3 text-primary" data-fa-transform="grow-6 down-2"></i><strong>{{ translations[lang].info.items.type }}:</strong> {{ project.data.type }}</li>
 		</ul>
 	</div>
 	<div class="sidebar-row mb-5">
 		<h3 class="sidebar-title mb-4">{{ translations[lang].stats.title }}</h3>
 		<ul class="list-unstyled ps-2">
-			<li class="mb-4"><i class="fas fa-chart-simple me-3 text-primary" data-fa-transform="grow-6 down-2"></i><strong>{{ translations[lang].stats.items.visits }}:</strong> {% if stats.visits %}~{{ stats.visits }}{% else %}n/a{% endif %}</li>
-			<li class="mb-4"><i class="fas fa-heart me-3 text-primary" data-fa-transform="grow-6 down-2"></i><strong>{{ translations[lang].stats.items.followers }}:</strong> {% if stats.followers %}~{{ stats.followers }}{% else %}n/a{% endif %}</li>
-			<li><i class="fas fa-envelope me-3 text-primary" data-fa-transform="grow-6 down-2"></i><strong>{{ translations[lang].stats.items.subscribers }}:</strong> {% if stats.subscribers %}~{{ stats.subscribers }}{% else %}n/a{% endif %}</li>
+			<li class="mb-4"><i class="fas fa-chart-simple me-3 text-primary" data-fa-transform="grow-6 down-2"></i><strong>{{ translations[lang].stats.items.visits }}:</strong> {% if project.data.stats.visits %}~{{ project.data.stats.visits }}{% else %}n/a{% endif %}</li>
+			<li class="mb-4"><i class="fas fa-heart me-3 text-primary" data-fa-transform="grow-6 down-2"></i><strong>{{ translations[lang].stats.items.followers }}:</strong> {% if project.data.stats.followers %}~{{ project.data.stats.followers }}{% else %}n/a{% endif %}</li>
+			<li><i class="fas fa-envelope me-3 text-primary" data-fa-transform="grow-6 down-2"></i><strong>{{ translations[lang].stats.items.subscribers }}:</strong> {% if project.data.stats.subscribers %}~{{ project.data.stats.subscribers }}{% else %}n/a{% endif %}</li>
 		</ul>
 	</div>
 	<div class="sidebar-row">
-		<h3 class="sidebar-title mb-3">{{ translations[lang].technologies.title }}</h3>
+		<h3 class="sidebar-title mb-3">{{ translations[lang].technologies }}</h3>
 		<div class="webdev-icons row mb-5 justify-content-center">
-			{% for technology in technologies | sort %}
+			{% for technology in project.data.technologies | sort %}
 				<div class="webdev-icon col-3 col-xl-2 me-0 mb-4"><img class="img-fluid" src="{{ '/assets/img/technologies/' | url }}{{ technology | lower }}.svg"></div>
 			{% endfor %}
 		</div>
